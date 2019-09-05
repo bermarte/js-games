@@ -1,32 +1,43 @@
-//setInterval(function(){ console.log("Hello"); }, 1000);
-let btns = document.querySelectorAll(".btn");
+const btns = document.querySelectorAll(".btn");
 
-combs = [];
-points_pc = 0;
-points_you = 0;
+let combs = [];
+let points_pc = 0;
+let points_you = 0;
+
 btns.forEach(function (element, human) {
-    slot = element.getAttribute("data-game-slot");
+    let slot = element.getAttribute("data-game-slot");
     combs.push(slot);
     element.addEventListener("click", function () {
-        console.log("you: " + element.getAttribute("data-game-slot") + " " + human);
-        //change imgs here
-        pc = Math.floor(Math.random() * 3);
+        slot = element.getAttribute("data-game-slot");
+        console.log("you: " + slot + " " + human);
+        clearClasses(".img-player", combs);
+        document.querySelector(".img-player").classList.add(combs[human]);
+        let pc = Math.floor(Math.random() * 3);
+        clearClasses(".img-pc", combs);
+        document.querySelector(".img-pc").classList.add(combs[pc]);
         console.log("pc: " + combs[pc] + " " + pc);
         console.log(check(human, pc));
+
+        function clearClasses(myClass, arr){
+            for (let i = 0, len = arr.length; i < len; i++) {
+                document.querySelector(myClass).classList.remove(arr[i]);
+            }
+        }
+
     });
 });
-function check(a,b){
-    if (a == b){
+
+function check(a, b) {
+    if (a == b) {
         return "equal";
     }
-    if ((a == 0 && b == 1) || (a == 1 && b == 2) || (a == 2 && b == 0)){
+    if ((a == 0 && b == 1) || (a == 1 && b == 2) || (a == 2 && b == 0)) {
         points_you++;
-        console.log("you: "+points_you);
+        console.log("you: " + points_you);
         return "you win";
-    }
-    else{
+    } else {
         points_pc++;
-        console.log("pc: "+points_pc);
+        console.log("pc: " + points_pc);
         return "you loose";
     }
 }

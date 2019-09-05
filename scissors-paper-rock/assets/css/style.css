@@ -70,12 +70,34 @@
 }
 
 .img-player {
+    background: #fff;
+    /*
     background: #fff url(../imgs/scissors.svg) no-repeat center;
     background-size: contain;
+    */
+     */
 }
 
 .img-pc {
-    background: #fff url(../imgs/scissors.svg) no-repeat center;
+    background: #fff;
+    /*background: #fff url(../imgs/paper.svg) no-repeat center /contain;*/
+}
+.contain{
     background-size: contain;
+}
+.rotate{
     transform: rotateY(180deg);
+}
+
+.rock {
+    background: #fff url(../imgs/rock.svg) no-repeat center /contain;
+}
+.scissors {
+    background: #fff url(../imgs/scissors.svg) no-repeat center /contain;
+}
+.paper {
+    background: #fff url(../imgs/paper.svg) no-repeat center /contain;
+}
+.rotate{
+
 }
