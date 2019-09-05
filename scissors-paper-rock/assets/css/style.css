@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.slots {
+    background-color: red;
+    height: 5vw;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.blocks {
+    width: 20vw;
+    margin: 3px;
+    min-width: 15px;
+    /*
+    margin: 10px;
+    width: 20vw;
+
+    max-width: 600px;
+    min-width: 25px;
+    */
+    height: 34%;
+}
+
+.btn {
+
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.imgs {
+    display: flex;
+    background-color: orange;
+    height: 60vh;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+
+}
+.img-slots{
+    width: 40vw;
+    height: 80%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    border-color: #ccc;
+}
+
+.img-player {
+    background: #fff url(../imgs/scissors.svg) no-repeat center;
+    background-size: contain;
+}
+
+.img-pc {
+    background: #fff url(../imgs/scissors.svg) no-repeat center;
+    background-size: contain;
+    transform: rotateY(180deg);
+}
