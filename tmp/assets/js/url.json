@@ -2,7 +2,7 @@
   "imgs": [
     {
       "id": 1,
-      "url": "https://cdn.icon-icons.com/icons2/582/PNG/128/wonder-women_icon-icons.com_55030.png"
+      "css": ".wonder-women { background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/128/wonder-women_icon-icons.com_55030.png) no-repeat center /contain;}"
     },
     {
       "id": 22,
