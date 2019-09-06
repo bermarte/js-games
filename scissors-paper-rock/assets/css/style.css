@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
 * {
     padding: 0;
     margin: 0;
+}
+
+body {
+    background-color: #00b3ff;
+    font-family: 'Fredoka One', cursive;
+
 }
 
 .slots {
@@ -17,39 +25,22 @@
     width: 20vw;
     margin: 3px;
     min-width: 15px;
-    /*
-    margin: 10px;
-    width: 20vw;
-
-    max-width: 600px;
-    min-width: 25px;
-    */
     height: 34%;
 }
 
 .btn {
-
     padding: 6px 12px;
-    margin-bottom: 0;
     font-size: 14px;
-    font-weight: 400;
     text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
-    text-decoration: none;
-    color: #333;
+    color: darkred;
     background-color: #fff;
     border-color: #ccc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .imgs {
@@ -59,9 +50,9 @@
     justify-content: space-around;
     flex-wrap: nowrap;
     align-items: center;
-
 }
-.img-slots{
+
+.img-slots {
     width: 40vw;
     height: 80%;
     border: 1px solid transparent;
@@ -69,35 +60,38 @@
     border-color: #ccc;
 }
 
-.img-player {
-    background: #fff;
-    /*
-    background: #fff url(../imgs/scissors.svg) no-repeat center;
-    background-size: contain;
-    */
-     */
+.img-player,
+.img-pc{
+   background: #fff;
 }
 
-.img-pc {
-    background: #fff;
-    /*background: #fff url(../imgs/paper.svg) no-repeat center /contain;*/
-}
-.contain{
+.contain {
     background-size: contain;
 }
-.rotate{
+
+.rotate {
     transform: rotateY(180deg);
 }
 
 .rock {
     background: #fff url(../imgs/rock.svg) no-repeat center /contain;
 }
+
 .scissors {
     background: #fff url(../imgs/scissors.svg) no-repeat center /contain;
 }
+
 .paper {
     background: #fff url(../imgs/paper.svg) no-repeat center /contain;
 }
-.rotate{
 
+.results {
+    padding: 20px;
+    font-size: 26px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 24vh;
 }
