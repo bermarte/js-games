@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+body{
+    background-color: darkorange;
+    font-family: 'Fredoka One', cursive;
+}
+.container{
+}
+.grid-container {
+    display: grid;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+    background-color: orange;
+    padding: 10px;
+}
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333333;
+}
+.grid-item{
+    margin: 1px;/* extrq */
+}
