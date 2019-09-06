@@ -9,7 +9,7 @@ btns.forEach(function (element, human) {
     combs.push(slot);
 
     element.addEventListener("click", function () {
-        slot = element.getAttribute("data-game-slot");
+
         console.log("you: " + slot + " " + human);
         clearClasses(".img-player", combs);
         document.querySelector(".img-player").classList.add(combs[human]);
