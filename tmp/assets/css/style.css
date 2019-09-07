@@ -24,5 +24,10 @@ body{
     color: #333333;
 }
 .grid-item{
-    margin: 1px;/* extrq */
+    margin: 1px;/* extra */
 }
+/* images */
+.wonder-woman{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/128/wonder-women_icon-icons.com_55030.png) no-repeat center /contain;
+}
+
