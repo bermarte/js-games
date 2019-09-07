@@ -25,9 +25,50 @@ body{
 }
 .grid-item{
     margin: 1px;/* extra */
+    height: 12vh;
+    min-height: 5vh;
 }
 /* images */
 .wonder-woman{
     background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/128/wonder-women_icon-icons.com_55030.png) no-repeat center /contain;
+}
+.super-man{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/superman_icon-icons.com_55033.png) no-repeat center /contain;
+}
+.police-man{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/police-man_icon-icons.com_55039.png) no-repeat center /contain;
+}
+.queen{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/queen_icon-icons.com_55037.png) no-repeat center /contain;
+}
+.speaker{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/speaker_icon-icons.com_55035.png) no-repeat center /contain;
+}
+.police-woman{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/police-women_icon-icons.com_55038.png) no-repeat center /contain;
+}
+.boy{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/boy_icon-icons.com_55048.png) no-repeat center /contain;
+}
+.assistant{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/asistante_icon-icons.com_55049.png) no-repeat center /contain;
+}
+.chef{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/chef_icon-icons.com_55046.png) no-repeat center /contain;
+}
+.doctor{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/doctor_icon-icons.com_55045.png) no-repeat center /contain;
+}
+.girl{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/girl_icon-icons.com_55043.png) no-repeat center /contain;
+}
+.worker{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/worker_icon-icons.com_55029.png) no-repeat center /contain;
+ }
+.woman{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/woman_icon-icons.com_55031.png) no-repeat center /contain;
+}
+.spy{
+    background: #fff url(https://cdn.icon-icons.com/icons2/582/PNG/512/spy_icon-icons.com_55034.png) no-repeat center /contain;
 }
 
