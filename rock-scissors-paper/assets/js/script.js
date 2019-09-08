@@ -10,13 +10,13 @@ btns.forEach(function (element, human) {
 
     element.addEventListener("click", function () {
 
-        console.log("you: " + slot + " " + human);
+        console.log("you:", slot, human);
         clearClasses(".img-player", combs);
         document.querySelector(".img-player").classList.add(combs[human]);
         let pc = Math.floor(Math.random() * 3);
         clearClasses(".img-pc", combs);
         document.querySelector(".img-pc").classList.add(combs[pc]);
-        console.log("pc: " + combs[pc] + " " + pc);
+        console.log("pc:", combs[pc], pc);
         console.log(check(human, pc));
 
         function clearClasses(myClass, arr) {
@@ -30,7 +30,7 @@ btns.forEach(function (element, human) {
 
 function check(a, b) {
     if (a == b) {
-        message = "equal";
+        message = "tie";
         updateResults(".partial", message);
         updateResults(".total", "");
         return message;
@@ -38,14 +38,14 @@ function check(a, b) {
     if ((a == 0 && b == 1) || (a == 1 && b == 2) || (a == 2 && b == 0)) {
         points_you++;
         message = "you win";
-        console.log("you: " + points_you);
+        console.log("you:", points_you);
         updateResults(".partial", message);
         updateResults(".total", "you: " + points_you);
         return message;
     } else {
         points_pc++;
         message = "you loose";
-        console.log("pc: " + points_pc);
+        console.log("pc:", points_pc);
         updateResults(".partial", message);
         updateResults(".total", "pc: " + points_pc);
         return message;
