@@ -2,9 +2,10 @@
 //let url = "https://cdn.jsdelivr.net/gh/bermarte/js-games/tmp/assets/js/url.json";
 const url = "http://localhost:63342/Js-games/git/js-games/tmp/assets/js/url.json";
 const n_items = 10;
-let lives = 8;
+let lives = 14;
 let points = 0;
 const gridItem = document.querySelectorAll(".grid-item");
+
 fetch(url)
     .then(function (response) {
         return response.json();
@@ -22,6 +23,7 @@ fetch(url)
         new_seq = randomSequence(seq, n_items*2);
         console.log("sequence",new_seq);
 
+        //add an image and an event to each card
         gridItem.forEach( (element, index) => {
                 json_css = data.imgs[new_seq[index]].css;
                 element.classList.add(json_css);
@@ -29,6 +31,7 @@ fetch(url)
                 element.addEventListener("click",  function myclick() {
                     console.log("this", this);
                     this.removeEventListener("click", myclick);
+                    this.classList.remove("cover");
 
                     check(this.getAttribute('data-img'), this, this.id, myclick );
 
@@ -54,9 +57,10 @@ function check(attr, div, id, fun){
     play.push(attr);
     play_id.push(id);
 
-    //let sel = document.querySelectorAll("."+attr);
+    let coupleFound;
 
     if (play.length > 1)
+    //found couple
     if (play[play.length - 2] === attr){
 
         console.log("previous:", play[play.length - 2]);
@@ -64,51 +68,76 @@ function check(attr, div, id, fun){
         console.log("play", play[play.length - 2])
 
         points++;
-        document.getElementById("points").textContent = points;
+        coupleFound = true;
 
-        play[play.length - 2]
+        document.getElementById("points").textContent = points;
         console.log("attr",attr);
 
-        //console.log("sel", sel);
-
+        //you win
         if (points === n_items){
-            console.log("you win")
+            console.log("you win");
+            document.querySelector("#message").classList.add("animate-message");
             document.querySelector("#message p").textContent = "you win";
+            document.querySelector("#message p").classList.add("animate-message-p");
             stop();
         }
         console.log("points:", points);
-
     }
+    //wrong couple
     else{
 
         console.log("previous:", play[play.length - 2]);
         console.log("different");
 
-        //add event listener back if the two are not equal
+        //add event listener back if the two cards selected are not equal
         document.getElementById(play_id[0]).addEventListener("click",fun);
         document.getElementById(play_id[1]).addEventListener("click", fun);
 
         lives--;
+        coupleFound = false;
         document.getElementById("lives").textContent = lives;
 
+        //you loose
         if (lives === 0){
             console.log("game over");
+            document.querySelector("#message").classList.add("animate-message");
             document.querySelector("#message p").textContent = "game over";
+            document.querySelector("#message p").classList.add("animate-message-p");
             stop();
+            showAll();
         }
         console.log("lives:",lives);
     }
     console.log(play);
-    //empty arrays once each couple is chosen
-    if (play.length === 2) clear(play);
-    if (play_id.length === 2) clear(play_id);
+    //empty arrays once each couple is made, be ready for the next step
+    if (play.length === 2) {
+        clear(play, play_id, coupleFound);
+    }
+
 }
-function clear(arr){
+async function clear(arr, arr2, bool){
+    //empty arrays of cards and ids
+    el_1 = arr2[0];
+    el_2 = arr2[1];
     arr.length = 0;
+    arr2.length = 0;
+    //add covers if the game is not finished and if the player didn't find a couple
+    if (lives > 0 && bool===false){
+        await delay(800);
+        document.getElementById(el_1).classList.add("cover");
+        document.getElementById(el_2).classList.add("cover");
+    }
 }
+//disable all the events once the game is finished
 function stop(){
     gridItem.forEach(element =>
         element.classList.add("disable")
     );
 }
-
+const delay = ms => new Promise(res => setTimeout(res, ms));
+//show all combinations once the game ends
+function showAll(){
+    gridItem.forEach(element =>
+        element.classList.remove("cover")
+    );
+}
