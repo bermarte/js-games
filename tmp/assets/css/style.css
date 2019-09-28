@@ -1,17 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+*{
+    margin: 0 auto;
+}
 body{
     background-color: darkorange;
     font-family: 'Fredoka One', cursive;
 }
 .container{
+    max-width: 1600px;
+}
+.player-interface{
+    min-height: 60px;
+    display: grid;
+    grid-template-columns: 15% 15% auto;
+    grid-gap: 10px;
+}
+.player-interface span{
+    font-size: 22px;
+    color: #5d1c00;
+    white-space: pre;
+}
+span,
+.span{
+    display:inline-flex;
+    align-items: center;
+    white-space:nowrap;
 }
 .grid-container {
-    display: grid;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
     background-color: orange;
     padding: 10px;
+    min-width: 120px;
 }
 .grid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
@@ -27,6 +48,19 @@ body{
     margin: 1px;/* extra */
     height: 12vh;
     min-height: 5vh;
+}
+
+#message{
+    background-color: #AA3A4C;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    min-height: 49px;
+}
+#message p{
+    align-self: flex-start;
 }
 /* images
 I have problem with https://cdn.icon-icons.com/icons2/582/PNG/128
@@ -82,5 +116,41 @@ so I made a copy of the images I have used
 }
 .gentleman{
     background: #fff url(../imgs/gentleman_icon-icons.com_55044.png) no-repeat center /contain;
+}
+
+/* Smartphones ----------- */
+
+@media only screen and (max-width : 226px){
+    .grid-container {
+        grid-template-columns: auto;
+    }
+    .player-interface{
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+}
+@media only screen and (max-width : 320px) and (min-width: 225px){
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
+    .player-interface{
+        grid-template-columns: 50% 50%;
+    }
+}
+@media only screen and (max-width : 428px) and (min-width: 322px) {
+    .grid-container {
+        grid-template-columns: auto auto auto;
+    }
+    .player-interface{
+        grid-template-columns: 28% 28% auto;
+    }
+}
+@media only screen and (max-width : 600px) and (min-width: 427px) {
+    .grid-container {
+        grid-template-columns: auto auto auto auto;
+    }
+    .player-interface{
+        grid-template-columns: 22% 22% auto;
+    }
 }
 
