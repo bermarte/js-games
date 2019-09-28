@@ -36,7 +36,7 @@ fetch(url)
         })
 
     });
-
+//create a random sequence of cards without repetitions
 function randomSequence(array, num) {
     new_arr = [];
     while (num--) {
@@ -74,6 +74,7 @@ function check(attr, div, id, fun){
         if (points === n_items){
             console.log("you win")
             document.querySelector("#message p").textContent = "you win";
+            stop();
         }
         console.log("points:", points);
 
@@ -93,14 +94,7 @@ function check(attr, div, id, fun){
         if (lives === 0){
             console.log("game over");
             document.querySelector("#message p").textContent = "game over";
-
-            gridItem.forEach( (element) => {
-                //console.log('hi', element.id);
-                document.getElementById(element.id).removeEventListener("click", fun);
-                //element.removeListener("click", fun);
-            });
-
-
+            stop();
         }
         console.log("lives:",lives);
     }
@@ -112,5 +106,9 @@ function check(attr, div, id, fun){
 function clear(arr){
     arr.length = 0;
 }
-
+function stop(){
+    gridItem.forEach(element =>
+        element.classList.add("disable")
+    );
+}
 

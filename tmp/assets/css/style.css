@@ -62,6 +62,9 @@ span,
 #message p{
     align-self: flex-start;
 }
+.disable{
+    pointer-events:none;
+}
 /* images
 I have problem with https://cdn.icon-icons.com/icons2/582/PNG/128
 so I made a copy of the images I have used
