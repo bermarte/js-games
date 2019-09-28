@@ -1,6 +1,6 @@
 
-//let url = "https://cdn.jsdelivr.net/gh/bermarte/js-games/tmp/assets/js/url.json";
-const url = "http://localhost:63342/Js-games/git/js-games/tmp/assets/js/url.json";
+let url = "https://cdn.jsdelivr.net/gh/bermarte/js-games/memory-game/assets/js/url.json";
+//const url = "http://localhost:63342/Js-games/git/js-games/tmp/assets/js/url.json";
 const n_items = 10;
 let lives = 14;
 let points = 0;
