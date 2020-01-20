@@ -1,0 +1,33 @@
+/*font*/
+@font-face {
+  font-family: "camingocodebold";
+  src: url("../font/camingocode-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  background-color: #d9f7d3;
+}
+#container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 352px;
+}
+#my_canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 20px solid #a4fd92;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+h1 {
+  text-align: center;
+  font-family: "camingocodebold", monospace;
+  font-size: 52px;
+  color: #7dce6d;
+  margin: 10px;
+}
