@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
 
   let center = c.width / 2;
 
-  //scoren lifes, direction
+  //score, lifes, direction
   let score = 0;
   let lifes = 20;
   let dir;
@@ -23,13 +23,260 @@ window.addEventListener("load", () => {
     y: center
   };
 
-  function rand() {
-    return Math.floor(Math.random() * width_box) * box;
-  }
+  const ranPos = () => {
+    ran = Math.floor(Math.random() * 210);
+    let ran_first = poss_pos[ran][0];
+    let ran_second = poss_pos[ran][1];
+    let arr = [ran_first, ran_second];
+    return arr;
+  };
 
+  //squares: 0,22,44,66,88,110,132,154,176,198,220,242,264,286,308,330,352
+  //210 possible positions
+  //from poss_pos[0] to poss_pos[209]
+  poss_pos = [
+    [66, 0],
+    [88, 0],
+    [110, 0],
+    [132, 0],
+    [154, 0],
+    [176, 0],
+    [198, 0],
+    [220, 0],
+    [242, 0],
+    [264, 0],
+    [286, 0],
+
+    [66, 22],
+    [88, 22],
+    [110, 22],
+    [132, 22],
+    [154, 22],
+    [176, 22],
+    [198, 22],
+    [220, 22],
+    [242, 22],
+    [264, 22],
+    [286, 22],
+
+    [0, 44],
+    [66, 44],
+    [88, 44],
+
+    [154, 44],
+    [176, 44],
+    [198, 44],
+
+    [264, 44],
+    [286, 44],
+    [308, 44],
+    [330, 44],
+    [352, 44],
+    //
+    [0, 66],
+    [66, 66],
+    [88, 66],
+
+    [154, 66],
+    [176, 66],
+    [198, 66],
+
+    [264, 66],
+    [286, 66],
+    [308, 66],
+    [330, 66],
+    [352, 66],
+
+    [66, 88],
+    [88, 88],
+
+    [154, 88],
+    [176, 88],
+    [198, 88],
+
+    [264, 88],
+    [286, 88],
+
+    [66, 110],
+    [88, 110],
+    [110, 110],
+    [132, 110],
+    [154, 110],
+    [176, 110],
+    [198, 110],
+    [220, 110],
+    [242, 110],
+    [264, 110],
+    [286, 110],
+
+    [0, 132],
+    [22, 132],
+    [44, 132],
+    [66, 132],
+    [88, 132],
+    [110, 132],
+    [132, 132],
+    [154, 132],
+    [176, 132],
+    [198, 132],
+    [220, 132],
+    [242, 132],
+    [264, 132],
+    [286, 132],
+    [308, 132],
+    [330, 132],
+    [352, 132],
+
+    [0, 154],
+    [22, 154],
+    [44, 154],
+    [66, 154],
+    [88, 154],
+
+    [154, 154],
+    [176, 154],
+    [198, 154],
+
+    [264, 154],
+    [286, 154],
+    [308, 154],
+    [330, 154],
+    [352, 154],
+
+    [66, 176],
+    [88, 176],
+
+    [154, 176],
+    [176, 176],
+    [198, 176],
+
+    [264, 176],
+    [286, 176],
+
+    [66, 198],
+    [88, 198],
+
+    [154, 198],
+    [176, 198],
+    [198, 198],
+
+    [264, 198],
+    [286, 198],
+
+    [0, 220],
+    [22, 220],
+    [44, 220],
+    [66, 220],
+    [88, 220],
+    [110, 220],
+    [132, 220],
+    [154, 220],
+    [176, 220],
+    [198, 220],
+    [220, 220],
+    [242, 220],
+    [264, 220],
+    [286, 220],
+    [308, 220],
+    [330, 220],
+    [352, 220],
+
+    [0, 242],
+    [22, 242],
+    [44, 242],
+    [66, 242],
+    [88, 242],
+    [110, 242],
+    [132, 242],
+    [154, 242],
+    [176, 242],
+    [198, 242],
+    [220, 242],
+    [242, 242],
+    [264, 242],
+    [286, 242],
+    [308, 242],
+    [330, 242],
+    [352, 242],
+
+    [66, 264],
+    [88, 264],
+
+    [154, 264],
+    [176, 264],
+    [198, 264],
+
+    [264, 264],
+    [286, 264],
+
+    //
+    [66, 286],
+    [88, 286],
+
+    [154, 286],
+    [176, 286],
+    [198, 286],
+
+    [264, 286],
+    [286, 286],
+
+    [0, 308],
+    [22, 308],
+    [44, 308],
+    [66, 308],
+    [88, 308],
+
+    [154, 308],
+    [176, 308],
+    [198, 308],
+
+    [264, 308],
+    [286, 308],
+    [308, 308],
+    [330, 308],
+    [352, 308],
+
+    [0, 330],
+    [22, 330],
+    [44, 330],
+    [66, 330],
+    [88, 330],
+    [110, 330],
+    [132, 330],
+    [154, 330],
+    [176, 330],
+    [198, 330],
+    [220, 330],
+    [242, 330],
+    [264, 330],
+    [286, 330],
+    [308, 330],
+    [330, 330],
+    [352, 330],
+
+    [0, 352],
+    [22, 352],
+    [44, 352],
+    [66, 352],
+    [88, 352],
+    [110, 352],
+    [132, 352],
+    [154, 352],
+    [176, 352],
+    [198, 352],
+    [220, 352],
+    [242, 352],
+    [264, 352],
+    [286, 352],
+    [308, 352],
+    [330, 352],
+    [352, 352]
+  ];
+
+  var ran_pos = ranPos();
   let point = {
-    x: rand(),
-    y: rand()
+    x: ran_pos[0], //anPos().ran_first, //poss_pos[ran][0], //rand(),
+    y: ran_pos[1] //poss_pos[ran][1] //rand()
   };
 
   //squares: 0,22,44,66,88,110,132,154,176,198,220,242,264,286,308,330,352
@@ -110,6 +357,7 @@ window.addEventListener("load", () => {
 
     //collisions
     let maze_blocks_pos = [
+      //orizontal
       [0, 0],
       [22, 0],
       [44, 0],
@@ -177,6 +425,7 @@ window.addEventListener("load", () => {
       [132, 88],
       [220, 88],
       [242, 88],
+
       //154,176,198
       [110, 154],
       [132, 154],
@@ -230,8 +479,8 @@ window.addEventListener("load", () => {
     //where is the worm
     function where(x, y) {
       let xy_pos = [x, y];
-      console.log(xy_pos);
-      console.log("collision: " + isArrayInArray(maze_blocks_pos, xy_pos));
+      //console.log(xy_pos);
+      //console.log("worm can move: " + isArrayInArray(maze_blocks_pos, xy_pos));
     }
 
     //check direction
@@ -260,11 +509,13 @@ window.addEventListener("load", () => {
     //eat target
     if (worm_x == point.x && worm_y == point.y) {
       score++;
-      //alert("point!");
+
       //move target
+      ran_pos = ranPos();
+
       point = {
-        x: rand(),
-        y: rand()
+        x: ran_pos[0],
+        y: ran_pos[1]
       };
     } else {
       //pop
@@ -274,18 +525,18 @@ window.addEventListener("load", () => {
     //stop walls
     //left wall
     if (worm_x <= 0) {
-      worm_x = 0; //box / 2;
+      worm_x = 0;
     }
     //right wall
     if (worm_x >= c.width) {
-      worm_x = c.width; //c.width - box / 2;
+      worm_x = c.width;
     }
     //top wall
     if (worm_y >= c.height) {
-      worm_y = c.height; //c.height - box / 2;
+      worm_y = c.height;
     }
     if (worm_y <= 0) {
-      worm_y = 0; //box / 2;
+      worm_y = 0;
     }
 
     if (!canMove(worm_x, worm_y)) {
@@ -297,7 +548,6 @@ window.addEventListener("load", () => {
     //add block
     let new_block = { x: worm_x, y: worm_y };
     worm.unshift(new_block);
-    //worm[0] = new_block;
 
     //score
     ctx.fillStyle = "black";
@@ -307,19 +557,36 @@ window.addEventListener("load", () => {
     //lifes:
     ctx.fillText("lifes = " + lifes, 0, c.height);
     if (lifes == 0) {
-      alert("GAME OVER, RESTART");
+      clearInterval(game);
 
-      score = 0;
-      lifes = 20;
-      worm_y = center;
-      worm_x = center;
+      worm.length = 0;
+      worm[0] = {
+        x: center,
+        y: center
+      };
 
-      /*
-      ctx.clearRect(0, 0, c.width, c.height);
-      ctx.fillText("GAME OVER", 200, 200);
-      */
+      ctx.fillStyle = "#9b5517";
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.fillStyle = "black";
+
+      ctx.textAlign = "center";
+      ctx.font = "bold 22pt Courier";
+      ctx.fillText("GAME OVER", center, center);
+      ctx.font = "18pt Courier";
+      ctx.fillText("points: " + score, center, center / 1.5);
+      ctx.fillText("<enter> to restart", center, center + 56);
     }
   }
 
   let game = setInterval(draw, 100);
+
+  window.addEventListener("keyup", function(e) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (e.keyCode === 13) {
+      ctx.textAlign = "start";
+      score = 0;
+      lifes = 20;
+      game = setInterval(draw, 100);
+    }
+  });
 });
