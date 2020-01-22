@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
 
   //score, lifes, direction
   let score = 0;
+  let hiscore = 0;
   let lifes = 20;
   let dir;
 
@@ -24,7 +25,7 @@ window.addEventListener("load", () => {
   };
 
   const ranPos = () => {
-    ran = Math.floor(Math.random() * 210);
+    ran = Math.floor(Math.random() * poss_pos.length);
     let ran_first = poss_pos[ran][0];
     let ran_second = poss_pos[ran][1];
     let arr = [ran_first, ran_second];
@@ -275,8 +276,8 @@ window.addEventListener("load", () => {
 
   var ran_pos = ranPos();
   let point = {
-    x: ran_pos[0], //anPos().ran_first, //poss_pos[ran][0], //rand(),
-    y: ran_pos[1] //poss_pos[ran][1] //rand()
+    x: ran_pos[0],
+    y: ran_pos[1]
   };
 
   //squares: 0,22,44,66,88,110,132,154,176,198,220,242,264,286,308,330,352
@@ -575,6 +576,10 @@ window.addEventListener("load", () => {
       ctx.font = "18pt Courier";
       ctx.fillText("points: " + score, center, center / 1.5);
       ctx.fillText("<enter> to restart", center, center + 56);
+      if (score > hiscore) {
+        hiscore = score;
+      }
+      ctx.fillText("hi-score: " + hiscore, center, center / 1.9);
     }
   }
 
