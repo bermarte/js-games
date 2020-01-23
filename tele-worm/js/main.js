@@ -427,7 +427,6 @@ window.addEventListener("load", () => {
       [220, 88],
       [242, 88],
 
-      //154,176,198
       [110, 154],
       [132, 154],
       [220, 154],
@@ -460,7 +459,7 @@ window.addEventListener("load", () => {
       [242, 308]
     ];
     //where is the worm
-    where(worm_x, worm_y);
+    //where(worm_x, worm_y);
 
     //check collisions
     function isArrayInArray(arr, item) {
@@ -480,29 +479,22 @@ window.addEventListener("load", () => {
     //where is the worm
     function where(x, y) {
       let xy_pos = [x, y];
-      //console.log(xy_pos);
+      console.log(xy_pos);
       //console.log("worm can move: " + isArrayInArray(maze_blocks_pos, xy_pos));
     }
 
     //check direction
     if (canMove(worm_x, worm_y)) {
       if (dir == "left") {
-        //console.log("moving to the left");
-
         worm_x -= box;
       }
       if (dir == "right") {
-        //console.log("moving to the right");
-
         worm_x += box;
       }
       if (dir == "up") {
-        //console.log("moving up");
-
         worm_y -= box;
       }
       if (dir == "down") {
-        //console.log("moving down");
         worm_y += box;
       }
     }
